@@ -8,6 +8,20 @@ BASE_URL = "https://api.smsala.com/api/SendSMS"
 
 @frappe.whitelist()
 def send_sms(phone_number, message):
+    """
+    Sends an SMS message to the specified phone number using the SMS API.
+
+    Parameters:
+    phone_number (str): The recipient's phone number, including country code (e.g., "973123123").
+    message (str): The message content to be sent via SMS.
+
+    Returns:
+    None: This function prints the status of the message delivery. If the message is sent successfully, 
+          it prints the response data; otherwise, it prints an error message.
+
+    Raises:
+    requests.exceptions.RequestException: If the request to the SMS API fails.
+    """
     # Construct the endpoint URL
     url = BASE_URL
     # Define the parameters for the API request
